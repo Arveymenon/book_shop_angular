@@ -1,0 +1,107 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title>Cart</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card class="book_card" *ngFor="let book of cartService.cart; let itt = index">
+    <ion-grid>
+      <ion-row>
+        <ion-col size='3'>
+            <img src='https://elasticbeanstalk-us-east-2-743144358023.s3.us-east-2.amazonaws.com/{{book.book.image}}'>
+          </ion-col>
+        <ion-col size='5'>
+            <b>{{ book.book.name }}</b><br>
+            {{ book.book.board.name }}<br>
+            Price: {{ book.refurbished == true ? mathLib.round(book.book.mrp_in_rupees * 0.8) : book.book.mrp_in_rupees  }} &#8377;
+          </ion-col>
+        <ion-col size='4'>
+          <!-- Refurbished Book Slot -->
+            <div *ngIf="book.book.refurbished_available">
+              <ion-checkbox slot="end" class="books_refurbished_checkbox" (click)="refurbished_price(itt)" [(ngModel)]="book.book.refurbished"></ion-checkbox>
+              <p class="no-margin refurbished_flag">Refurbished</p>
+            </div>
+          <!-- Add to cart System -->
+            <div>
+                <div class='controls' *ngIf="book.quantity_in_cart == 0" (click)="cartService.addProduct(book.book.id,book.product_type)">
+                  <p onclick="this.style='box-shadow: none'" class="add_to_cart_button">Add To Cart</p>
+                </div>
+                <div class="controls full_controls" *ngIf="book.book.quantity_in_cart != 0">
+                  <div class="plus_minus_button" (click)="cartService.addProduct(book.book.id,book.product_type)">+</div>
+                  <div class="product_in_cart">{{ book.quantity_in_cart }}</div>
+                  <div class="plus_minus_button" (click)="removeProduct(itt)">-</div>
+                </div>
+              </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+
+
+
+
+
+
+
+
+    <div class="recommendation_section" *ngIf="cartService.recommendations.length > 0">
+      <p class="indented_heading">Recommended</p>
+      <div class="card-section section-card">
+        <ion-card class="moving-card" *ngFor='let product of cartService.recommendations; let itt = index'>
+          <ion-grid>
+            <ion-row>
+              
+              <ion-col size='3'>
+                <img src='https://elasticbeanstalk-us-east-2-743144358023.s3.us-east-2.amazonaws.com/{{product.image}}'>
+              </ion-col>
+
+              <ion-col size='5'>
+                  <b>{{ product.name }}</b><br>
+                  {{ product.board.name }}<br>
+                  Price: {{ product.refurbished == true ? mathLib.round(product.mrp_in_rupees * 0.8) : product.mrp_in_rupees  }} &#8377;
+                </ion-col>
+
+              <ion-col size='4' class="no-padding">
+                <!-- Refurbished Book Slot -->
+                  <div *ngIf="product.refurbished_available">
+                    <ion-checkbox slot="end" class="books_refurbished_checkbox" (click)="refurbished_price(itt)" [(ngModel)]="product.refurbished"></ion-checkbox>
+                    <p class="no-margin refurbished_flag">Refurbished</p>
+                  </div>
+                <!-- Add to cart System -->
+                  <div>
+                      <div class='controls' (click)="cartService.addProduct(product.id, product.product_type, product)">
+                        <p onclick="this.style='box-shadow: none'" class="add_to_cart_button">Add To Cart</p>
+                      </div>
+                    </div>
+                </ion-col>
+
+              </ion-row>
+            </ion-grid>
+          </ion-card>
+        </div>
+      </div>
+
+
+</ion-content>
+
+<ion-footer>
+    <div class="footer">
+        <ion-grid>
+            <ion-row>
+                <ion-col size="6" class="total">
+                  Order Total: {{ cartService.total }} &#8377;
+                  </ion-col>
+                <ion-col size="6">
+                  <div class="controls" (click)="orderConfirmation()">
+                      <p class="order_details">Place Order</p>
+                    </div>
+                  </ion-col>
+              </ion-row>
+          </ion-grid>
+      </div>
+</ion-footer>

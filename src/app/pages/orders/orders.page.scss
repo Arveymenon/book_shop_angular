@@ -1,0 +1,27 @@
+.icon_bg{
+    width: 65px;
+    border-radius: 100%;
+    color: #fff;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.processing_background{
+    background-color: var(--ion-color-secondary);
+}
+
+.delivering_background{
+    background-color: var(--ion-color-primary);
+}
+
+.completed_background{
+    background-color: var(--ion-color-success);
+}
+
+.failure_background{
+    background-color: var(--ion-color-danger);
+}
+
+.warning_background{
+    background-color: var(--ion-color-warning);
+}

@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Resale Order</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor='let order of resaleOrders' (click)="details(order.id)">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="3">
+
+            <div class="processing_background icon_bg" *ngIf="order.status == 0">
+                <ion-icon style="font-size: 3em;" name="sync"></ion-icon>
+              </div>
+            <div class="delivering_background icon_bg" *ngIf="order.status == 1">
+              <ion-icon style="font-size: 3em;" name="bicycle"></ion-icon>
+              </div>
+            <div class="completed_background icon_bg" *ngIf="order.status == 2">
+                <ion-icon style="font-size: 3em;" name="checkmark"></ion-icon>
+              </div>
+            <div class="warning_background icon_bg" *ngIf="order.status == 3 || order.status == 4">
+                <ion-icon style="font-size: 3em;" name="alert"></ion-icon>
+              </div>
+            <div class="failure_background icon_bg" *ngIf="order.status == 5">
+                <ion-icon style="font-size: 3em;" name="close"></ion-icon>
+              </div>
+
+
+
+          </ion-col>
+
+
+
+          <ion-col size="8">
+              <p class="margin-0">Request Placed On {{ moment(order.created_at).add(1, 'd').format('L') }}</p>
+              <p class="margin-0" *ngIf="order.status == 0">Status: <span>Order Placed And Is Processing</span></p>
+              <p class="margin-0" *ngIf="order.status == 1">Status: <span>Your Order Is On its Way</span></p>
+              <p class="margin-0" *ngIf="order.status == 2">Status: <span>Order Completed</span></p>
+              <p class="margin-0" *ngIf="order.status == 3 || order.status == 4">Status: <span>Order Interrupted</span></p>
+              <p class="margin-0" *ngIf="order.status == 5">Status: <span>Order Cancelled</span></p>
+
+
+            </ion-col>
+          <ion-col size='1'>
+            <!-- <div class="" *ngIf="order.status == 0"> -->
+              <ion-icon style="font-size: 1.5em;" name="play" class="vertically-center"></ion-icon>
+            <!-- </div> -->
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+
+</ion-content>

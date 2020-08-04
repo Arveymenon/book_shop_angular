@@ -1,0 +1,70 @@
+.book_card{
+    border-radius: 20px;
+    
+    .refurbished_flag{
+      float: right;
+      padding-right: 5px;
+    }
+    
+    .books_refurbished_checkbox{
+      float: right;
+    }
+    
+    .controls{
+      width: 100%;
+      text-align: center;
+      float: right;
+    }
+    
+    .full_controls{
+      display: flex;
+      flex-direction: row-reverse;
+      margin-top: 10px;
+    }
+    
+    .add_to_cart_button{
+      background: #ff9b24ba;
+      padding: 10px;
+      color: #fff;
+      font-weight: 900;
+      box-shadow: 0px 1px 6px 0px #7b7b7b;
+      border-radius: 16px;
+    }
+  
+    .product_in_cart{
+      width: 33%;
+      margin: auto;
+      font-size: 1.6em;
+    }
+  
+    .plus_minus_button{
+      width: 33%;
+      padding: 2px;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.9em;
+      border-radius: 31px;
+      background: #ff9b24ba;
+    }
+  }
+
+.footer{
+    .total{
+        text-align: center;
+        font-size: 1.2em;
+        margin: auto;
+
+    }
+
+    .controls{
+    text-align: center;
+        .order_details{
+            background: #ff9b24ba;
+            padding: 10px;
+            color: #fff;
+            font-weight: 900;
+            box-shadow: 0px 1px 6px 0px #7b7b7b;
+            border-radius: 16px;
+        }
+    }
+}

@@ -1,0 +1,30 @@
+<ion-content>
+    <div class="welcome">
+        <h2 class="fancy_font first_line">Welcome To</h2>
+        <h1 class="fancy_font second_line">SCHOOBY</h1>
+    </div>
+    <div class="logo_box">
+        <img width="30%" src="assets/images/logo.png">
+    </div>
+    <div *ngIf="onboarding_stage == 1" class="number_form">
+        <ion-input type="number" [formControl]='mobile' placeholder="Mobile" class="ion-text-center flat_input custom_input wide_input" (ionChange)="submit_mobile_number()"></ion-input>
+    </div>
+    <div *ngIf="onboarding_stage == 2" style="position: absolute; color: #000">
+        {{ generated_otp }}
+    </div>
+    <div *ngIf="onboarding_stage == 2" class="number_form">
+        <ion-input type="number" placeholder="OTP" [formControl]='otp' class="ion-text-center flat_input otp_input" (ionChange)="submit_otp()"></ion-input>
+        <!-- <ion-chip (click)="submit_otp()" class='submit_icon otp_submit'>
+            <ion-icon class="margin-0" color="primary" name="arrow-dropright"></ion-icon>
+        </ion-chip> -->
+        <p class="resend_option" (click)="resendOtp()"> Resend Otp</p>
+    </div>
+
+    <div *ngIf="onboarding_stage == 3" class="number_form">
+        <form [formGroup]="register">
+            <ion-input placeholder="Name" formControlName='name' class="flat_input register_input"></ion-input>
+            <ion-input  placeholder="Email" formControlName='email' class="flat_input register_input"></ion-input>
+            <ion-button (click)="register_user()" color='primary' expand="block" class="register_submit"> Register</ion-button>
+        </form>
+    </div>
+</ion-content>

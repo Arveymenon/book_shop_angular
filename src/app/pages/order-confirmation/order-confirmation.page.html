@@ -1,0 +1,37 @@
+<ion-content>
+  <ion-item class="vertically-center">
+    <ion-label position="floating">Select Your Address</ion-label>
+    <ion-select interface="action-sheet" [formControl]="selectedAddress">
+      <ion-select-option *ngFor="let address of addresses" [value]="address.id">{{ address.address }}</ion-select-option>
+      </ion-select>
+  </ion-item>
+  <ion-button expand="block"(click)="addAddress()">Add New Address</ion-button>
+  
+  <ion-item>
+    <ion-input placeholder="Coupon Code" [formControl]="couponCode"></ion-input>
+    <ion-button expand="block"(click)="validateCoupon()">Add Coupon</ion-button>
+    </ion-item>
+</ion-content>
+
+<div class="width-100 text-center" *ngIf="this.old_total > 0">
+  <h3>Coupon Applied</h3>
+  <h2>{{ this.couponCode.value }}</h2>
+  <h5><s>{{ this.old_total }}</s></h5>
+  </div>
+<div *ngIf="res_check">{{res_check}}</div>
+<ion-footer>
+  <div class="footer">
+      <ion-grid>
+          <ion-row>
+              <ion-col size="6" class="total">
+                Order Total: {{ total }} &#8377;
+                </ion-col>
+              <ion-col size="6">
+                <div class="controls" (click)="makePayment()">
+                    <p class="order_details">Make Payment</p>
+                  </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+</ion-footer>

@@ -1,0 +1,20 @@
+.footer{
+    .total{
+        text-align: center;
+        font-size: 1.2em;
+        margin: auto;
+
+    }
+
+    .controls{
+    text-align: center;
+        .order_details{
+            background: var(--ion-color-primary);
+            padding: 10px;
+            color: #fff;
+            font-weight: 900;
+            box-shadow: 0px 1px 6px 0px #7b7b7b;
+            // border-radius: 16px;
+        }
+    }
+}

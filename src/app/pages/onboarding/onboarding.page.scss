@@ -1,0 +1,89 @@
+
+ion-content{
+    --offset-top: 0px;
+    --offset-bottom: 0px;
+    --color: #fff;
+
+    .logo_box{
+        text-align: center;
+        img{
+            width: 30%;
+            max-width: 300px;
+        }
+    }
+}
+
+.welcome{
+    text-align: center;
+    margin-top: 10%;
+    color: #3f9076;
+    .first_line{
+        font-size: 2em;
+    }
+    .second_line{
+        font-size: 3.5em;
+    }
+}
+
+
+.number_form{
+    margin-top: 8%;
+
+    .custom_input{
+        position: absolute;
+    }
+    
+    .wide_input{
+        width: 60%;
+        margin: 0 20%;
+    }
+    
+    .submit_icon{
+        float: right;
+        background: #fff;
+        position: relative;
+        z-index: 999;
+    }
+    
+    .number_submit{
+        right: 20%;
+    }
+
+    .otp_input{
+        width: 150px;
+        margin: 0 auto;
+    }
+    
+    .otp_submit{
+        right: 37%;
+        bottom: 40px;
+    }
+    
+    .register_input{
+        width: 60%;
+        margin: 3% 20%;
+    }
+
+    .register_submit{
+        width: 60%;
+        margin: 0 20%;
+    }
+}
+
+.resend_option{
+    color: #777;
+    opacity: 0.8;
+    text-align: center;
+    font-size: 0.7em;
+    font-weight: 600;
+}
+
+.register_form{
+    margin-top: 10%;
+    padding: 5%;
+    ion-item{
+        margin-bottom: 5%;
+    }
+
+    
+}

@@ -1,0 +1,38 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-camera": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "PACKAGE_NAME": "com.schooby.shop"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.schooby.shop"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.schooby.shop"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.schooby.shop"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.schooby.shop"
+    },
+    "cordova-plugin-ionic-keyboard": {
+      "PACKAGE_NAME": "com.schooby.shop"
+    },
+    "cordova-plugin-ionic-webview": {
+      "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+",
+      "PACKAGE_NAME": "com.schooby.shop"
+    },
+    "onesignal-cordova-plugin": {
+      "PACKAGE_NAME": "com.schooby.shop"
+    }
+  },
+  "dependent_plugins": {}
+}

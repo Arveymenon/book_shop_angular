@@ -1,0 +1,7 @@
+{
+  "name": "garage_uncle_angular",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

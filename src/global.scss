@@ -1,0 +1,200 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+@font-face {
+    font-family: 'montserrat';
+    src: url(assets/fonts/Montserrat.ttf) format("truetype");
+    font-weight: 400;
+  }
+
+@font-face {
+    font-family: 'GROBOLD';
+    src: url(assets/fonts/GROBOLD.ttf);
+}
+
+ion-toolbar{
+    --background: #58c3a1;
+    --color: #fff;
+    color: #fff;
+}
+
+ion-card{
+    background: #fff !important;
+}
+
+.no-padding{
+    padding: 0;
+}
+
+.no-margin{
+    margin: 0;
+}
+
+// COMPONENTS
+
+.rounded_button{
+    --border-radius: 25px;
+}
+
+// caroussel
+
+.card-section {
+    margin-left: 12px;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin-bottom: 15px;
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    ion-card {
+        margin-left: 5px;
+        margin-right: 5px;
+        border-radius: 0px;
+    }
+
+    .moving-card {
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+        
+        ion-img {
+            height: 100%;
+            object-fit: fill !important;
+        }
+
+    }
+
+    .moving-card:nth-child(1) {
+        margin-left: 0;
+    }
+}
+
+.section-card {
+    max-height: 300px;
+    .moving-card {
+        width: 70%;
+        border-radius: 22px;
+    }
+}
+
+// TEXTS AND FONTS
+
+.fancy_font{
+    font-family: 'GROBOLD','montserrat', sans-serif;
+}
+
+.ion-item-input{
+        box-shadow: 0px 4px 5px 1px #8c8c8c;
+        border-radius: 20px;
+}
+
+ion-input.flat_input input{
+    border: 2px solid #bdc3c7 !important;
+    color: #34495e !important;
+    // line-height: 1.467;
+    padding: 8px 12px !important;
+    // height: 42px;
+    border-radius: 6px !important;
+    box-shadow: none !important;
+    transition: border .25s linear, color .25s linear, background-color .25s linear;
+}
+
+ion-input.flat_input input:focus{
+    border-color: #1abc9c !important;
+    outline: 0;
+    box-shadow: none !important;
+}
+
+.font-08em{
+    font-size: 0.8em;
+}
+
+.truncate{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+// View define
+.padding-0{ padding: 0px}
+.padding-left-0{ padding-left: 0px}
+.padding-right-0{ padding-right: 0px}
+.padding-top-0{ padding-top: 0px}
+.padding-bottom-0{ padding-bottom: 0px}
+
+.sm-padding{ padding: 8px}
+.sm-padding-left{ padding-left: 8px}
+.sm-padding-right{ padding-right: 8px}
+.sm-padding-top{ padding-top: 8px}
+.sm-padding-bottom{ padding-bottom: 8px}
+
+.md-padding{ padding: 16px}
+.md-padding-left{ padding-left: 16px}
+.md-padding-right{ padding-right: 16px}
+.md-padding-top{ padding-top: 16px}
+.md-padding-bottom{ padding-bottom: 16px}
+
+.lg-padding{ padding: 32px}
+.lg-padding-left{ padding-left: 32px}
+.lg-padding-right{ padding-right: 32px}
+.lg-padding-top{ padding-top: 32px}
+.lg-padding-bottom{ padding-bottom: 32px}
+
+
+.margin-auto{ margin: auto }
+
+.margin-0{ margin: 0px}
+.margin-left-0{ margin-left: 0px}
+.margin-right-0{ margin-right: 0px}
+.margin-top-0{ margin-top: 0px}
+.margin-bottom-0{ margin-bottom: 0px}
+
+.sm-margin{ margin: 8px}
+.sm-margin-left{ margin-left: 8px}
+.sm-margin-right{ margin-right: 8px}
+.sm-margin-top{ margin-top: 8px}
+.sm-margin-bottom{ margin-bottom: 8px}
+
+.md-margin{ margin: 16px}
+.md-margin-left{ margin-left: 16px}
+.md-margin-right{ margin-right: 16px}
+.md-margin-top{ margin-top: 16px}
+.md-margin-bottom{ margin-bottom: 16px}
+
+.lg-margin{ margin: 32px}
+.lg-margin-left{ margin-left: 32px}
+.lg-margin-right{ margin-right: 32px}
+.lg-margin-top{ margin-top: 32px}
+.lg-margin-bottom{ margin-bottom: 32px}
+
+.vertically-center{
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+}

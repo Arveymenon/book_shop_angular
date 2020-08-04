@@ -1,0 +1,26 @@
+<ion-content>
+  <ion-item class="vertically-center">
+    <ion-label position="floating">Select Your Address</ion-label>
+    <ion-select interface="action-sheet" [formControl]="selectedAddress">
+      <ion-select-option *ngFor="let address of addresses" [value]="address.id">{{ address.address }}</ion-select-option>
+      </ion-select>
+  </ion-item>
+  <ion-button expand="block"(click)="addAddress()">Add New Address</ion-button>
+</ion-content>
+
+<ion-footer>
+  <div class="footer">
+      <ion-grid>
+          <ion-row>
+              <ion-col size="6" class="total">
+                Expected Pick Up Date: {{ moment(this.today).add(1, 'd').format('L') }}
+                </ion-col>
+              <ion-col size="6">
+                <div class="controls" (click)="confirm()">
+                    <p class="order_details">Confirm Address</p>
+                  </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+</ion-footer>

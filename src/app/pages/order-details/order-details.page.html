@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+      <!-- <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons> -->
+    <ion-title>Order Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card class="book_card" *ngFor="let order of order.details; let itt = index">
+    <ion-grid>
+      <ion-row>
+        <ion-col size='3'>
+            <img src='https://elasticbeanstalk-us-east-2-743144358023.s3.us-east-2.amazonaws.com/{{ order.book.image }}'>
+          </ion-col>
+        <ion-col size='5'>
+            <b>{{ order.book.name }}</b><br>
+            {{ order.book.board.name }}<br>
+            Price: {{ order.refurbished ? math.round(order.book.mrp_in_rupees * 0.8) : order.book.mrp_in_rupees }} &#8377;
+          </ion-col>
+        <ion-col size='4'>
+          <!-- Add to cart System -->
+            <div>
+              <div *ngIf="order.refurbished == 1"> 
+                <p class="no-margin refurbished_flag">Refurbished</p>
+              </div>
+                <div class='controls' *ngIf="resaleBooks[itt].quantity == 0 && resaleActive == true" (click)="addToCart(itt)">
+                  <p onclick="this.style='box-shadow: none'" class="add_to_cart_button">Add To Cart</p>
+                </div>
+                <div class="controls full_controls" *ngIf="resaleBooks[itt].quantity != 0">
+                  <div class="plus_minus_button" (click)="addToCart(itt)">+</div>
+                  <div class="product_in_cart">{{ resaleBooks[itt].quantity }}</div>
+                  <div class="plus_minus_button" (click)="removeFromCart(itt)">-</div>
+                </div>
+              </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+</ion-content>
+
+<ion-footer>
+
+    <div class="footer" *ngIf="this.resaleTotal == 0">
+        <ion-grid>
+            <ion-row>
+                <ion-col class="total" *ngIf="order.particular">
+                  Total: {{ order.particular[0].amount }} &#8377;
+                  </ion-col>
+                  <ion-col *ngIf="resaleActive == false && order.resale_order" class="ion-text-center">
+                    Expected Resale<br> Pick Up Date:
+                       {{ moment(order.resale_order[order.resale_order.length - 1].created_at).add(1, 'd').format('L') }}
+                   </ion-col>
+              </ion-row>
+          </ion-grid>
+      </div>
+    <div class="footer" *ngIf="this.resaleTotal != 0">
+        <ion-grid>
+            <ion-row>
+                <ion-col class="total">
+                  Estimated Resale Value:<br> {{ resaleTotal }} &#8377;
+                  </ion-col>
+                <ion-col>
+                  <div class="controls">
+                      <p onclick="this.style='box-shadow: none'" (click)="requestResale()" class="order_details">Request Resale</p>
+                    </div>
+                  </ion-col>
+              </ion-row>
+          </ion-grid>
+      </div>
+</ion-footer>

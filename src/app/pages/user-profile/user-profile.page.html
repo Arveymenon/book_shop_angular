@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <!-- <h4 class="sm-margin-left dog_font custom-primary-font-color">Details</h4> -->
+
+
+    
+    <form *ngIf='profile' [formGroup]="profile" (ngSubmit)="update()">
+      
+        <ion-input *ngIf="user.name" type="text" required value="{{ user.name }}" formControlName="name" class="flat_input sm-margin-top" placeholder="Enter Your Name"></ion-input>
+
+        <ion-input type="email" placeholder="Enter Your Email" formControlName="email" required class="flat_input sm-margin-top"></ion-input>
+
+        <ion-input type="number" min="8" max="13" formControlName="mobile" required value="{{ user.mobile ? user.mobile : null }}" class="flat_input sm-margin-top" placeholder="Enter Your Mobile Number"></ion-input>
+
+      <ion-button expand="block" color="primary" type="submit">Update Profile</ion-button><br>
+    </form>
+
+
+
+
+    <h4 class="sm-margin-left"><div class="dog_font custom-primary-font-color float-left">Address</div>
+      <div style="float: right;">
+        <ion-icon style="color: rgb(95, 95, 95);" size="large" (click)="addAddress()" name="add-circle-outline"></ion-icon>
+      </div>
+    </h4>
+    <div class="width-100" class='text-center' (click)="addAddress()" *ngIf="!addresses || addresses.length == 0">
+      <p class="width-100" class='text-center'>Kindly Add Your Address</p>
+    </div>
+      <ion-list *ngIf="addresses && addresses.length > 0" class="width-100" style="background: #0000; width: 100%">
+        <ion-item *ngFor="let address of addresses" style="--background: #0000">
+          {{ address.address }}
+        </ion-item>
+      </ion-list>
+
+</ion-content>
