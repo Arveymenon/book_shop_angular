@@ -13,7 +13,7 @@
     <ion-grid>
       <ion-row>
         <ion-col size='3'>
-            <img src='https://elasticbeanstalk-us-east-2-743144358023.s3.us-east-2.amazonaws.com/{{book.book.image}}'>
+            <img [src]="this.http.assets_url + book.book.image">
           </ion-col>
         <ion-col size='5'>
             <b>{{ book.book.name }}</b><br>
@@ -57,7 +57,7 @@
             <ion-row>
               
               <ion-col size='3'>
-                <img src='https://elasticbeanstalk-us-east-2-743144358023.s3.us-east-2.amazonaws.com/{{product.image}}'>
+                <img [src]='this.http.assets_url + product.image'>
               </ion-col>
 
               <ion-col size='5'>

@@ -2,21 +2,33 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Http, Headers, RequestOptions } from '@angular/http'; 
 import { map } from 'rxjs/operators';
-
+import { environment } from './../../../environments/environment'
 // import { HTTP, HTTPResponse } from '@ionic-native/http/ngx';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
+
+  public url = 'http://arvey-book-shop.herokuapp.com/';
+  public assets_url = 'http://arvey-book-shop.herokuapp.com/storage/';
+  
   constructor(public http: HttpClient) {
+    if(environment.production){
+      this.url = "http://arvey-book-shop.herokuapp.com/"
+      this.assets_url = 'http://arvey-book-shop.herokuapp.com/storage/';
+    }else {
+      this.url = "http://localhost:8000/"
+      this.assets_url = 'http://localhost:8000/';
+    }
 
   }
 
   call(method, apiEndPoint, body?: any) {
     console.log(apiEndPoint);
-    const url = 'https://schooby.us-east-2.elasticbeanstalk.com/' + apiEndPoint;
-    // const url = 'http://localhost:8888/book_shop_backend/' + apiEndPoint;
+    // const url = 'https://schooby.us-east-2.elasticbeanstalk.com/' + apiEndPoint;
+    // const url = 'http://192.168.1.192:8000/book_shop_backend/' + apiEndPoint;
+    const url = this.url + apiEndPoint;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Accept': 'application/json'
