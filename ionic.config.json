@@ -1,7 +1,7 @@
 {
-  "name": "garage_uncle_angular",
+  "name": "Schooby_frontend",
   "integrations": {
-    "cordova": {}
+    "capacitor": {}
   },
   "type": "angular"
 }

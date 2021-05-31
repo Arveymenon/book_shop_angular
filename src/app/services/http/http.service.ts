@@ -10,16 +10,16 @@ import { environment } from './../../../environments/environment'
 })
 export class HttpService {
 
-  public url = 'http://arvey-book-shop.herokuapp.com/';
-  public assets_url = 'https://raw.githubusercontent.com/Arveymenon/book_shop_angular/master/src/assets/';
+  public url = '';
+  public assets_url = '';
   
   constructor(public http: HttpClient) {
     if(environment.production){
-      this.url = "http://arvey-book-shop.herokuapp.com/"
+      this.url = "https://arvey-book-shop.herokuapp.com/"
       this.assets_url = 'https://raw.githubusercontent.com/Arveymenon/book_shop_angular/master/src/assets/';
     }else {
       this.url = "http://localhost:8000/"
-      this.assets_url = 'http://localhost:8000/';
+      this.assets_url = 'http://localhost:8000/storage/';
     }
 
   }
